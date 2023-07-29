@@ -1,15 +1,13 @@
 package com.api.gateway.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
-public class Room {
+@Table(name = "room")
+public class Room implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,24 +15,46 @@ public class Room {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private int level;
+    @ManyToOne
+    @JoinColumn(name = "reference_room_id", nullable = false)
+    private ReferenceRoom referenceRoom;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "city_id")
+    @ManyToOne
+    @JoinColumn(name = "city_id", nullable = false)
     private City city;
+
+    @Column(nullable = false)
+    private Timestamp created_at;
+
+    @Column
+    private Timestamp updated_at;
 
     // Constructors
     public Room() {
+        // Default constructor
     }
 
-    public Room(String name, int level, City city) {
+    public Room(String name, ReferenceRoom referenceRoom, City city) {
         this.name = name;
-        this.level = level;
+        this.referenceRoom = referenceRoom;
         this.city = city;
     }
 
     // Getters and Setters
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", referenceRoom=" + referenceRoom +
+                ", city=" + city +
+                ", created_at=" + created_at +
+                ", updated_at=" + updated_at +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }
@@ -51,12 +71,12 @@ public class Room {
         this.name = name;
     }
 
-    public int getLevel() {
-        return level;
+    public ReferenceRoom getReferenceRoom() {
+        return referenceRoom;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setReferenceRoom(ReferenceRoom referenceRoom) {
+        this.referenceRoom = referenceRoom;
     }
 
     public City getCity() {
@@ -67,28 +87,19 @@ public class Room {
         this.city = city;
     }
 
-    // Equals and HashCode
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Room room = (Room) o;
-        return id.equals(room.id);
+    public Timestamp getCreated_at() {
+        return created_at;
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
     }
 
-    // ToString
-    @Override
-    public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", level=" + level +
-                ", city=" + city +
-                '}';
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
     }
 }

@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "equipment")
-public class Equipment implements Serializable {
+@Table(name = "reference_sensor")
+public class ReferenceSensor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class Equipment implements Serializable {
     private Timestamp updated_at;
 
     // Constructors
-    public Equipment() {
+    public ReferenceSensor() {
         // Default constructor
     }
 
-    public Equipment(String name, Timestamp created_at) {
+    public ReferenceSensor(String name, Timestamp created_at) {
         this.name = name;
         this.created_at = created_at;
     }
@@ -36,7 +36,7 @@ public class Equipment implements Serializable {
     // toString method
     @Override
     public String toString() {
-        return "Equipment{" +
+        return "ReferenceSensor{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", created_at=" + created_at +

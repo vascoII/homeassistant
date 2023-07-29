@@ -5,23 +5,20 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "room_equipment")
-public class RoomEquipment implements Serializable {
+@Table(name = "sensor_indicator")
+public class SensorIndicator implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
-    private Room room;
+    @JoinColumn(name = "sensor_id", nullable = false)
+    private Sensor sensor;
 
     @ManyToOne
-    @JoinColumn(name = "equipment_id", nullable = false)
-    private Equipment equipment;
-
-    @Column(nullable = false)
-    private String equipment_desc;
+    @JoinColumn(name = "indicator_id", nullable = false)
+    private Indicator indicator;
 
     @Column(nullable = false)
     private Timestamp created_at;
@@ -30,14 +27,13 @@ public class RoomEquipment implements Serializable {
     private Timestamp updated_at;
 
     // Constructors
-    public RoomEquipment() {
+    public SensorIndicator() {
         // Default constructor
     }
 
-    public RoomEquipment(Room room, Equipment equipment, String equipment_desc, Timestamp created_at) {
-        this.room = room;
-        this.equipment = equipment;
-        this.equipment_desc = equipment_desc;
+    public SensorIndicator(Sensor sensor, Indicator indicator, Timestamp created_at) {
+        this.sensor = sensor;
+        this.indicator = indicator;
         this.created_at = created_at;
     }
 
@@ -46,11 +42,10 @@ public class RoomEquipment implements Serializable {
     // toString method
     @Override
     public String toString() {
-        return "RoomEquipment{" +
+        return "SensorIndicator{" +
                 "id=" + id +
-                ", room=" + room +
-                ", equipment=" + equipment +
-                ", equipment_desc='" + equipment_desc + '\'' +
+                ", sensor=" + sensor +
+                ", indicator=" + indicator +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +
                 '}';
@@ -64,28 +59,20 @@ public class RoomEquipment implements Serializable {
         this.id = id;
     }
 
-    public Room getRoom() {
-        return room;
+    public Sensor getSensor() {
+        return sensor;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
     }
 
-    public Equipment getEquipment() {
-        return equipment;
+    public Indicator getIndicator() {
+        return indicator;
     }
 
-    public void setEquipment(Equipment equipment) {
-        this.equipment = equipment;
-    }
-
-    public String getEquipment_desc() {
-        return equipment_desc;
-    }
-
-    public void setEquipment_desc(String equipment_desc) {
-        this.equipment_desc = equipment_desc;
+    public void setIndicator(Indicator indicator) {
+        this.indicator = indicator;
     }
 
     public Timestamp getCreated_at() {

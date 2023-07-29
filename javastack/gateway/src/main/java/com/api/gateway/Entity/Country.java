@@ -1,13 +1,13 @@
 package com.api.gateway.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
-public class Country {
+@Table(name = "country")
+public class Country implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,16 +18,37 @@ public class Country {
     @Column(nullable = false)
     private String ref;
 
+    @Column(nullable = false)
+    private Timestamp created_at;
+
+    @Column
+    private Timestamp updated_at;
+
     // Constructors
     public Country() {
+        // Default constructor
     }
 
-    public Country(String name, String ref) {
+    public Country(String name, String ref, Timestamp created_at) {
         this.name = name;
         this.ref = ref;
+        this.created_at = created_at;
     }
 
     // Getters and Setters
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ref='" + ref + '\'' +
+                ", created_at=" + created_at +
+                ", updated_at=" + updated_at +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }
@@ -52,27 +73,19 @@ public class Country {
         this.ref = ref;
     }
 
-    // Equals and HashCode
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Country country = (Country) o;
-        return id.equals(country.id);
+    public Timestamp getCreated_at() {
+        return created_at;
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
     }
 
-    // ToString
-    @Override
-    public String toString() {
-        return "Country{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", ref='" + ref + '\'' +
-                '}';
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
     }
 }
