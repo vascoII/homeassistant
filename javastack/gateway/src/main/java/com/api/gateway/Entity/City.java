@@ -1,6 +1,6 @@
 package com.api.gateway.Entity;
 
-import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,11 +16,10 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Nonnull()
+    @Column(nullable = false)
     private String name;
 
-    @Nonnull()
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "country_id")
     private Country country;
 

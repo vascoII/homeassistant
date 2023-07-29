@@ -1,6 +1,6 @@
 package com.api.gateway.Entity;
 
-import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,10 +12,10 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Nonnull()
+    @Column(nullable = false)
     private String name;
 
-    @Nonnull()
+    @Column(nullable = false)
     private String ref;
 
     // Constructors
