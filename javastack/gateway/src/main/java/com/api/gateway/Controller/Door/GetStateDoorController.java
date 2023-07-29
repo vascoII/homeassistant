@@ -13,7 +13,7 @@ import com.api.gateway.Dto.DoorActionDto;
 public class GetStateDoorController {
     
     @GetMapping
-    @RequestMapping("/getState")
+    @RequestMapping("/state")
     public ResponseEntity<String> close(DoorActionDto doorDto) {
         return new ResponseEntity<>("Get State Door", HttpStatus.OK);
     }

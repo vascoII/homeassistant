@@ -13,7 +13,7 @@ import com.api.gateway.Dto.LightActionDto;
 public class GetStateLightController {
     
     @GetMapping
-    @RequestMapping("/getState")
+    @RequestMapping("/state")
     public ResponseEntity<String> close(LightActionDto lightDto) {
         return new ResponseEntity<>("Get State Light", HttpStatus.OK);
     }

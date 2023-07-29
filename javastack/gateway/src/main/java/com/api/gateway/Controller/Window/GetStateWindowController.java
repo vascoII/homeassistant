@@ -13,7 +13,7 @@ import com.api.gateway.Dto.WindowActionDto;
 public class GetStateWindowController {
     
     @GetMapping
-    @RequestMapping("/getState")
+    @RequestMapping("/state")
     public ResponseEntity<String> close(WindowActionDto doorDto) {
         return new ResponseEntity<>("Get State Window", HttpStatus.OK);
     }
