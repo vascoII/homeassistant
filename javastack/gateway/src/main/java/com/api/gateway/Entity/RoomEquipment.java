@@ -1,5 +1,6 @@
 package com.api.gateway.Entity;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,14 +14,17 @@ public class RoomEquipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Nonnull()
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @Nonnull()
     @ManyToOne
     @JoinColumn(name = "equipment_id")
     private Equipment equipment;
 
+    @Nonnull()
     @ManyToOne
     @JoinColumn(name = "state_id")
     private State state;
