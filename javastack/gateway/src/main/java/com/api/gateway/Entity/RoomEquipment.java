@@ -20,7 +20,6 @@ public class RoomEquipment implements Serializable {
     @JoinColumn(name = "equipment_id", nullable = false)
     private Equipment equipment;
 
-    @Column(nullable = false)
     private String equipment_desc;
 
     @Column(nullable = false)
@@ -34,14 +33,12 @@ public class RoomEquipment implements Serializable {
         // Default constructor
     }
 
-    public RoomEquipment(Room room, Equipment equipment, String equipment_desc, Timestamp created_at) {
+    public RoomEquipment(Room room, Equipment equipment, String equipment_desc) {
         this.room = room;
         this.equipment = equipment;
         this.equipment_desc = equipment_desc;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
-
-    // Getters and Setters
 
     // toString method
     @Override

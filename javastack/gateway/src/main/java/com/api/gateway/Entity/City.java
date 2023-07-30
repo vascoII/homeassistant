@@ -30,10 +30,10 @@ public class City implements Serializable {
         // Default constructor
     }
 
-    public City(Country country, String name, Timestamp created_at) {
+    public City(Country country, String name) {
         this.country = country;
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

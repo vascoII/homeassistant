@@ -26,9 +26,9 @@ public class ReferenceRoom implements Serializable {
         // Default constructor
     }
 
-    public ReferenceRoom(String name, Timestamp created_at) {
+    public ReferenceRoom(String name) {
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

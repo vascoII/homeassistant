@@ -26,9 +26,9 @@ public class Indicator implements Serializable {
         // Default constructor
     }
 
-    public Indicator(String name, Timestamp created_at) {
+    public Indicator(String name) {
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

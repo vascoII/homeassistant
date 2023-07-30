@@ -29,10 +29,10 @@ public class Country implements Serializable {
         // Default constructor
     }
 
-    public Country(String name, String ref, Timestamp created_at) {
+    public Country(String name, String ref) {
         this.name = name;
         this.ref = ref;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

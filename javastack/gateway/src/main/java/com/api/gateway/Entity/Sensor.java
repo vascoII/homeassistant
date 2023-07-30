@@ -30,10 +30,10 @@ public class Sensor implements Serializable {
         // Default constructor
     }
 
-    public Sensor(ReferenceSensor referenceSensor, String name, Timestamp created_at) {
+    public Sensor(ReferenceSensor referenceSensor, String name) {
         this.referenceSensor = referenceSensor;
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

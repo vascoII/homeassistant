@@ -1,4 +1,4 @@
-package com.api.gateway.Controller.Light;
+package com.api.gateway.Controller.Room.Light;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.gateway.Dto.LightActionDto;
+import com.api.gateway.Dto.EquipmentDto;
 
 @RestController
 @RequestMapping("/gateway/light")
-public class GetStateLightController {
+public class SwitchOnLightController {
     
     @GetMapping
-    @RequestMapping("/state")
-    public ResponseEntity<String> close(LightActionDto lightDto) {
-        return new ResponseEntity<>("Get State Light", HttpStatus.OK);
+    @RequestMapping("/open")
+    public ResponseEntity<String> close(EquipmentDto doorDto) {
+        return new ResponseEntity<>("Switch On", HttpStatus.OK);
     }
 
 }

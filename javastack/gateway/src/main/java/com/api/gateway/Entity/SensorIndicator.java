@@ -31,10 +31,10 @@ public class SensorIndicator implements Serializable {
         // Default constructor
     }
 
-    public SensorIndicator(Sensor sensor, Indicator indicator, Timestamp created_at) {
+    public SensorIndicator(Sensor sensor, Indicator indicator) {
         this.sensor = sensor;
         this.indicator = indicator;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

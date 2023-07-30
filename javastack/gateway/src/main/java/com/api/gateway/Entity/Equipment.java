@@ -26,9 +26,9 @@ public class Equipment implements Serializable {
         // Default constructor
     }
 
-    public Equipment(String name, Timestamp created_at) {
+    public Equipment(String name) {
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

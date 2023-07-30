@@ -38,6 +38,7 @@ public class Room implements Serializable {
         this.name = name;
         this.referenceRoom = referenceRoom;
         this.city = city;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

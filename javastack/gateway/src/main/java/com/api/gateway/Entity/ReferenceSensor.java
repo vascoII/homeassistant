@@ -26,9 +26,9 @@ public class ReferenceSensor implements Serializable {
         // Default constructor
     }
 
-    public ReferenceSensor(String name, Timestamp created_at) {
+    public ReferenceSensor(String name) {
         this.name = name;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters

@@ -38,12 +38,12 @@ public class RoomSensorIndicator implements Serializable {
         // Default constructor
     }
 
-    public RoomSensorIndicator(Room room, ReferenceSensor referenceSensor, Indicator indicator, String value, Timestamp created_at) {
+    public RoomSensorIndicator(Room room, ReferenceSensor referenceSensor, Indicator indicator, String value) {
         this.room = room;
         this.referenceSensor = referenceSensor;
         this.indicator = indicator;
         this.value = value;
-        this.created_at = created_at;
+        this.created_at = new Timestamp(System.currentTimeMillis());
     }
 
     // Getters and Setters
